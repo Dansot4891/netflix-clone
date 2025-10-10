@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const Center = styled.div`
-  align-items: center;
+type CenterProps = {
+  $margin?: string;
+};
+
+export const Center = styled.div<CenterProps>`
+  margin: ${({ $margin }) => $margin ?? "0px"};
+  display: flex;
   justify-content: center;
-  margin: 0px auto;
 `;

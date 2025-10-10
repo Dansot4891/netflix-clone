@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { AppPath } from "../../../../../core/styles/path/app_path";
 import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../../../core/styles/color/app_color";
 
 // 배경 이미지
 const SignInBackgroundComponent = styled.div`
@@ -10,10 +11,12 @@ const SignInBackgroundComponent = styled.div`
     url(${AppPath.signInBg});
   background-size: cover;
   width: 100vw;
-  height: 90vh;
+  min-height: 900px;
+  overflow: hidden;
   
   @media ${device.mobile} {
-    display: none;
+    background-image: none;
+    background-color: ${AppColor.black};
   }
 `;
 

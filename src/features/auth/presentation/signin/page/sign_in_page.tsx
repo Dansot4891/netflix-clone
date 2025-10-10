@@ -1,5 +1,6 @@
 import { SignInBackground } from "../component/sign_in_background"
 import SignInBox from "../component/sign_in_box"
+import SignInFooter from "../component/sign_in_footer"
 import SignInLogo from "../component/sign_in_logo"
 
 function SignInPage() {
@@ -9,6 +10,7 @@ function SignInPage() {
         <SignInLogo />
         <SignInBox />
       </SignInBackground>
+      <SignInFooter />
     </div>
   )
 }

@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { AppColor } from "../../../../../core/styles/color/app_color";
 import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
 import { AppLink } from "../../../../../shared/presentation/compoenent/link/app_link";
+import { Center } from "../../../../../shared/presentation/compoenent/align/center";
 
 // 로그인 박스
 const SignInBoxComponent = styled.div`
   background-color: ${AppColor.blackOpacity};
-  max-width: 450px;
+  max-width: 490px;
   border-radius: 4px;
   padding-left: 60px;
   padding-right: 60px;
@@ -36,11 +37,6 @@ const TextFieldComponent = styled.div`
   }
 `;
 
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 16px 0px;
-`;
 
 const Header = styled.p`
   font-size: 30px;
@@ -69,11 +65,11 @@ function SignInBox() {
                 <input type="password" placeholder="비밀번호" />
             </TextFieldComponent>
             <AppButton $color={AppColor.red}>로그인</AppButton>
-            <Center>
+            <Center $margin="16px 0px">
                 <SubHeader>또는</SubHeader>
             </Center>
             <AppButton $color={AppColor.gray30}>로그인 코드 사용하기</AppButton>
-            <Center>
+            <Center $margin="16px 0px">
                 <AppLink $underline={true} $hoverColor={AppColor.grayBE}>비밀번호를 잊으셨나요?</AppLink>
             </Center>
             <div style={{ margin: "16px 0px" }}>

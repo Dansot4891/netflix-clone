@@ -9,10 +9,12 @@ const SignInLogoComponent = styled.div`
 
   @media ${device.mobile} {
     width: 100px;
+    margin-left: 24px;
   }
 
   @media ${device.tablet} {
     width: 150px;
+    margin-left: 24px;
   }
 
   @media ${device.desktop} {
@@ -27,7 +29,7 @@ const SignInLogoComponent = styled.div`
 function SignInLogo() {
     return (
         <SignInLogoComponent>
-            <img src={AppPath.appLogo} alt="app logo" />
+            <img src={AppPath.appLogo} />
         </SignInLogoComponent>
     )
 }
