@@ -1,5 +1,5 @@
 // data/auth.api.ts
-import { auth } from "../../../../firebase.js";
+import { auth } from "../../../../firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 export const authApi = {

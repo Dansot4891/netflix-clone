@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { UserType } from "../data/dto/user_type";
+import type { UserType } from "../../../features/auth/data/dto/user_type";
 
 type AuthStatus =
   | "idle"        // 초기 상태 (아무 동작 전)
