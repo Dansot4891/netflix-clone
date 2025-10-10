@@ -5,9 +5,10 @@ import SignInLogo from "../component/sign_in_logo"
 function SignInPage() {
   return (
     <div>
-      <SignInBackground />
-      <SignInLogo />
-      <SignInBox />
+      <SignInBackground>
+        <SignInLogo />
+        <SignInBox />
+      </SignInBackground>
     </div>
   )
 }

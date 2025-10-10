@@ -5,10 +5,6 @@ import { AppPath } from "../../../../../core/styles/path/app_path";
 
 // 앱 로고
 const SignInLogoComponent = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
   margin-top: 12px;
 
   @media ${device.mobile} {
