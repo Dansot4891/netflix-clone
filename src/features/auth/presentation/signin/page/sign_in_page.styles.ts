@@ -1,6 +1,7 @@
 // App.tsx
 import styled from "styled-components";
 import { AppPath } from "../../../../../core/styles/path/app_path";
+import { device } from "../../../../../core/styles/path/responsive";
 
 const SignInBackground = styled.div`
   background-image: url(${AppPath.signInBg});
@@ -12,6 +13,17 @@ const SignInBackground = styled.div`
   top: 0;
   left: 0;
   z-index: 0;
+  @media ${device.mobile} {
+    padding: 20px;
+  }
+
+  @media ${device.tablet} {
+    padding: 40px;
+  }
+
+  @media ${device.desktop} {
+    padding: 60px;
+  }
 `;
 
 const AppLogoContainer = styled.div`
