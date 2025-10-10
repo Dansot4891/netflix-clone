@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { AppColor } from "../../../../core/styles/color/app_color";
 
 type ButtonProps = {
-    $color?: string;
-    $width?: string;
-    $textColor?: string;
+  $color?: string;
+  $width?: string;
+  $textColor?: string;
 };
 
 export const AppButton = styled.button<ButtonProps>`
@@ -14,6 +14,7 @@ export const AppButton = styled.button<ButtonProps>`
   border-radius: 4px;
   font-weight: 500;
   border: none;
+  font-size: 16px;
   width: ${({ $width }) => $width ?? "100%"};
   cursor: pointer;
   background-color: ${({ $color }) => $color ?? AppColor.main};
