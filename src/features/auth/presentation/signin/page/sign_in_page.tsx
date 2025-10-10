@@ -5,7 +5,7 @@ import SignInLogo from "../component/sign_in_logo"
 
 function SignInPage() {
   return (
-    <div>
+    <div style={{ width: "100%", minHeight: "100vh", display: "block" }}>
       <SignInBackground>
         <SignInLogo />
         <SignInBox />

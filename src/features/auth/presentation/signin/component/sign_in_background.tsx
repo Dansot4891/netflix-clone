@@ -10,9 +10,10 @@ const SignInBackgroundComponent = styled.div`
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
     url(${AppPath.signInBg});
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   min-height: 900px;
   overflow: hidden;
+  display: block;
   
   @media ${device.mobile} {
     background-image: none;
@@ -21,9 +22,9 @@ const SignInBackgroundComponent = styled.div`
 `;
 
 export function SignInBackground({ children }: { children: React.ReactNode }) {
-    return (
-        <SignInBackgroundComponent>
-            {children}
-        </SignInBackgroundComponent>
-    )
+  return (
+    <SignInBackgroundComponent>
+      {children}
+    </SignInBackgroundComponent>
+  )
 }
