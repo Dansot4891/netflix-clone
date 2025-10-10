@@ -5,6 +5,7 @@ export const AppColor = {
     // Black
     black: '#000000',
     darkBlack: '#0F0F0F',
+    blackOpacity: 'rgba(0, 0, 0, 0.8)',
 
     // White
     mixedWhite: '#E6E6E6',
@@ -12,6 +13,9 @@ export const AppColor = {
 
     // Red
     red: '#FF484E',
+
+    // Blue
+    blue: '#007BFF',
 
     // Gray
     grayBE: '#BEBEBE',
