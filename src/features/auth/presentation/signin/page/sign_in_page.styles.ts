@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AppPath } from "../../../../../core/styles/path/app_path";
 import { device } from "../../../../../core/styles/path/responsive";
 
+// 배경 이미지
 const SignInBackground = styled.div`
   background-image: url(${AppPath.signInBg});
   background-size: cover;
@@ -13,24 +14,67 @@ const SignInBackground = styled.div`
   top: 0;
   left: 0;
   z-index: 0;
+  padding: 20px;
+
   @media ${device.mobile} {
-    padding: 20px;
+    display: none;
+  }
+`;
+
+// 앱 로고
+const AppLogoContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+
+  @media ${device.mobile} {
+    width: 100px;
   }
 
   @media ${device.tablet} {
-    padding: 40px;
+    width: 150px;
   }
 
   @media ${device.desktop} {
-    padding: 60px;
+    width: 200px;
+  }
+
+  img{
+    width: 100%;
   }
 `;
 
-const AppLogoContainer = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
+// 로그인 박스
+const SignInBox = styled.div`
+  background-color: #000;
+  border-radius: 4px;
+  padding: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
+  opacity: 0.8;
 `;
 
-export { SignInBackground, AppLogoContainer };
+// 텍스트 필드
+const TextField = styled.div`
+  input{
+    padding: 16px 12px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid rgb(180, 180, 180);
+    background-color:rgb(13, 13, 13);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  input::placeholder {
+    color:rgb(196, 196, 196);
+    font-size: 16px;
+  }
+`;
+
+export { SignInBackground, AppLogoContainer, SignInBox, TextField };
