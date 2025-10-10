@@ -1,4 +1,5 @@
 import { AppPath } from "../../../../../core/styles/path/app_path"
+import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button"
 import { AppLogoContainer, SignInBackground, SignInBox, TextField } from "./sign_in_page.styles"
 
 function SignInPage() {
@@ -17,9 +18,9 @@ function SignInPage() {
         <TextField>
           <input type="password" placeholder="비밀번호" />
         </TextField>
-        <button>로그인</button>
+        <AppButton>로그인</AppButton>
         <p>또는</p>
-        <button>로그인 코드 사용하기</button>
+        <AppButton>로그인 코드 사용하기</AppButton>
         <p>비밀번호를 잊으셨나요?</p>
         <div>
           <input type="checkbox" name="agree" />
