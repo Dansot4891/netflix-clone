@@ -1,7 +1,8 @@
 // App.tsx
 import styled from "styled-components";
 import { AppPath } from "../../../../../core/styles/path/app_path";
-import { device } from "../../../../../core/styles/path/responsive";
+import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../../../core/styles/color/app_color";
 
 // 배경 이미지
 const SignInBackground = styled.div`
@@ -47,7 +48,7 @@ const AppLogoContainer = styled.div`
 
 // 로그인 박스
 const SignInBox = styled.div`
-  background-color: #000;
+  background-color: ${AppColor.black};
   border-radius: 4px;
   padding: 60px;
   position: absolute;
@@ -65,16 +66,19 @@ const TextField = styled.div`
     width: 100%;
     border-radius: 4px;
     border: 1px solid rgb(180, 180, 180);
-    background-color:rgb(13, 13, 13);
-    color: #fff;
+    background-color:${AppColor.darkBlack};
+    color: ${AppColor.white};
     font-size: 16px;
     cursor: pointer;
+    margin-bottom: 12px;
   }
 
   input::placeholder {
-    color:rgb(196, 196, 196);
+    color:${AppColor.gray9D};
     font-size: 16px;
   }
 `;
+
+
 
 export { SignInBackground, AppLogoContainer, SignInBox, TextField };

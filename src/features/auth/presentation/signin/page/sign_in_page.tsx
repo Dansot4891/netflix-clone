@@ -11,7 +11,7 @@ function SignInPage() {
       <div style={{ opacity: 0.7 }}></div>
       <SignInBox>
         <h1>로그인</h1>
-        <TextField style={{ marginBottom: "8px", marginTop: "20px" }}>
+        <TextField style={{ marginTop: "24px" }}>
           <input type="text" placeholder="이메일 또는 휴대폰 번호" />
         </TextField>
         <TextField>
