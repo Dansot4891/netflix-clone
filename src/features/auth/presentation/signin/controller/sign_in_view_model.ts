@@ -1,73 +1,60 @@
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { LoginUseCase } from "../../../domain/use_case/login_use_case";
-// import { setError, setUser } from "../../../../../shared/slices/auth/auth_slice";
-// import type { SignInState } from "./sign_in_state";
+import { useState } from "react";
+import type { SignInState } from "./sign_in_state";
+import { LoginUseCase } from "../../../domain/use_case/login_use_case";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../../../shared/slices/auth/auth_slice";
 
-// const loginUseCase = new LoginUseCase();
+/// 로그인 화면 뷰모델
+export const useSignInViewModel = () => {
+  const dispatch = useDispatch();
 
-// export const loginThunk = createAsyncThunk(
-//   "sign_in/execute",
-//   async (
-//     { email, password }: { email: string; password: string },
-//     { dispatch, rejectWithValue }
-//   ) => {
-//     try {
-//       const user = await loginUseCase.execute(email, password);
-//       dispatch(setUser(user)); // ✅ 전역 유저 정보 업데이트
-//       return user;
-//     } catch (err: any) {
-//       const msg = err.message ?? "로그인 실패";
-//       dispatch(setError(msg)); // ✅ 전역 에러 처리
-//       return rejectWithValue(msg);
-//     }
-//   }
-// );
+  const [state, setState] = useState<SignInState>({
+    email: "",
+    password: "",
+    isLoading: false,
+    error: undefined,
+  });
 
-// const signInInitState: SignInState = {
-//   email: "",
-//   password: "",
-//   rememberMe: false,
-//   isLoading: false,
-// }
+  // 🧩 상태 업데이트 액션들
+  const setEmail = (email: string) =>
+    setState((prev) => ({ ...prev, email }));
 
-// export const SignInViewModel = createSlice({
-//   name: "signIm",
-//   signInInitState,
-//   reducers: {
-//     setEmail: (state, action: PayloadAction<string>) => {
-//       state.email = action.payload;
-//     },
-//     setPassword: (state, action: PayloadAction<string>) => {
-//       state.password = action.payload;
-//     },
-//     toggleRememberMe: (state) => {
-//       state.rememberMe = !state.rememberMe;
-//     },
-//     resetForm: (state) => {
-//       state.email = "";
-//       state.password = "";
-//       state.rememberMe = false;
-//       state.error = undefined;
-//     },
-//   },
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(loginThunk.pending, (state) => {
-//         state.isLoading = true;
-//         state.error = undefined;
-//       })
-//       .addCase(loginThunk.fulfilled, (state) => {
-//         state.isLoading = false;
-//       })
-//       .addCase(loginThunk.rejected, (state, action) => {
-//         state.isLoading = false;
-//         state.error = action.payload as string;
-//       });
-//   },
-// });
+  const setPassword = (password: string) =>
+    setState((prev) => ({ ...prev, password }));
 
-// export const { setEmail, setPassword, toggleRememberMe, resetForm } =
-//   loginSlice.actions;
+  const setLoading = (isLoading: boolean) =>
+    setState((prev) => ({ ...prev, isLoading }));
 
-// export const selectLoginState = (state: RootState) => state.login;
-// export default loginSlice.reducer;
+  const setError = (error?: string) =>
+    setState((prev) => ({ ...prev, error }));
+
+  const login = async () => {
+    setLoading(true);
+    
+    try {
+      // 실제 API 연동 부분
+      const useCase = new LoginUseCase();
+      let resp = await useCase.execute(state.email, state.password);
+      // resp의 값을 가져와서 전역 유저 slice에 저장
+      dispatch(setUser(resp));
+
+      alert("로그인 성공");
+    } catch (err: any) {
+      setError(err.message ?? "로그인 실패");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 외부에서 접근할 수 있게 상태/액션 반환
+  return {
+    state: state,
+    actions: {
+      setEmail,
+      setPassword,
+      setLoading,
+      setError,
+      login,
+    },
+  };
+};
