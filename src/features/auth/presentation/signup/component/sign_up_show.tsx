@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AppColor } from "../../../../../core/styles/color/app_color";
+import { device } from "../../../../../core/styles/reponsive/responsive";
 
 const Container = styled.div`
     padding: 24px 10%;
@@ -9,6 +10,21 @@ const Row = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 24px;
+
+    @media ${device.mobile} {
+        flex-direction: column;
+    }
+
+    @media ${device.tablet} {
+        flex-wrap: wrap;
+        > div {
+            flex: 0 0 calc(50% - 12px);  // 2개씩 2줄
+        }
+    }
+
+    @media ${device.desktop} {
+        flex-direction: row;
+    }
 `;
 
 const Box = styled.div`

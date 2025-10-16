@@ -8,12 +8,15 @@ const SignUpIntroComponent = styled.div`
     text-align: center;
     width: 600px;
     margin: 0 auto;
+    padding-top: 160px;
 
     @media ${device.mobile} {
         width: 400px;
+        padding-top: 100px;
     }
     @media ${device.tablet} {
         width: 500px;
+        padding-top: 120px;
     }
 `;
 

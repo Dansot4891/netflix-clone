@@ -18,16 +18,9 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 24px 160px;
+    margin: 24px 10%;
     width: 100%;
     transition: transform 0.3s ease;
-
-    @media ${device.mobile} {
-        margin: 24px 80px;
-    }
-    @media ${device.tablet} {
-        margin: 24px 120px;
-    }
 
     &:hover{
         transform: scale(1.05);  // 5% 크게
