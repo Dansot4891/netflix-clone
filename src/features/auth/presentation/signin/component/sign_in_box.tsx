@@ -51,7 +51,7 @@ const Row = styled.div`
   }
 `;
 
-function SignInBox(props: ReturnType<typeof SignInViewModel>) {
+export function SignInBox(props: ReturnType<typeof SignInViewModel>) {
   const { handleEmailChange, handlePasswordChange, handleSignIn } = props;
   return (
     <SignInBoxComponent>
@@ -82,5 +82,3 @@ function SignInBox(props: ReturnType<typeof SignInViewModel>) {
     </SignInBoxComponent>
   )
 }
-
-export default SignInBox

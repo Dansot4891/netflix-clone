@@ -16,11 +16,11 @@ const LoadingViewComponent = styled.div`
 `;
 
 export function LoadingView() {
-    return (
-        <LoadingViewComponent>
-            <h3>
-                Loading...
-            </h3>
-        </LoadingViewComponent >
-    )
+  return (
+    <LoadingViewComponent>
+      <h3>
+        Loading...
+      </h3>
+    </LoadingViewComponent >
+  )
 }

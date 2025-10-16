@@ -6,6 +6,7 @@ import type { UserType } from "../../data/dto/user_type";
 export const authRepo = {
   async login(email: string, pw: string): Promise<UserType> {
     const userCredential = await authApi.login(email, pw);
+    console.log("userCredential: ", userCredential);
     return { email: userCredential.user.email ?? "", displayName: userCredential.user.displayName ?? "" };
   },
   async signup(email: string, pw: string): Promise<UserType> {
