@@ -6,9 +6,9 @@ import SignUpPage from './features/auth/presentation/signup/page/sign_up_page'
 function App() {
   return (
     <Routes>
-        <Route path="/" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-      </Routes>
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/" element={<SignUpPage />} />
+    </Routes>
   )
 }
 

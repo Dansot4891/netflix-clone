@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { AppColor } from "../../../../../core/styles/color/app_color";
-import { AppLink } from "../../../../../shared/presentation/compoenent/link/app_link";
-import { device } from "../../../../../core/styles/reponsive/responsive";
+import { device } from "../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../../core/styles/color/app_color";
+import { AppLink } from "../link/app_link";
 
-const FooterComponent = styled.div`
+type FooterProps = {
+    $backgroundColor?: string;
+};
+
+const FooterComponent = styled.div<FooterProps>`
     color: ${AppColor.gray9D};
-    box-sizing: border-box;        /* padding을 폭 안으로 포함 */
-    overflow-x: hidden;            /* 안전장치 */
+    background-color: ${({ $backgroundColor }) => $backgroundColor};
+    box-sizing: border-box;
+    overflow-x: hidden;
 
     @media ${device.mobile} {
         padding: 20px 24px;
@@ -43,9 +48,9 @@ const Wrap = styled.div`
     }
 `;
 
-function SignInFooter() {
+export function Footer({ $backgroundColor }: FooterProps) {
     return (
-        <FooterComponent>
+        <FooterComponent $backgroundColor={$backgroundColor}>
             <p style={{ fontSize: "16px" }}>질문이 있으신가요? 문의 전화: 00-308-321-0161 (수신자 부담)(무료 전화)</p>
             <Wrap>
                 <AppLink $underline={true} $textColor={AppColor.gray9D}>자주 묻는 질문</AppLink>
@@ -67,5 +72,3 @@ function SignInFooter() {
         </FooterComponent>
     )
 }
-
-export default SignInFooter

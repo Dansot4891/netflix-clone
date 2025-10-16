@@ -5,6 +5,7 @@ import { AppButton } from "../../../../../shared/presentation/compoenent/button/
 import { AppLink } from "../../../../../shared/presentation/compoenent/link/app_link";
 import { Center } from "../../../../../shared/presentation/compoenent/align/center";
 import { AppTextField } from "../../../../../shared/presentation/compoenent/text_field/app_text_field";
+import { SignInViewModel } from "../controller/sign_in_view_model";
 
 // 로그인 박스
 const SignInBoxComponent = styled.div`
@@ -50,15 +51,16 @@ const Row = styled.div`
   }
 `;
 
-function SignInBox() {
+function SignInBox(props: ReturnType<typeof SignInViewModel>) {
+  const { handleEmailChange, handlePasswordChange, handleSignIn } = props;
   return (
     <SignInBoxComponent>
       <Header>로그인</Header>
       <AppTextField>
-        <input type="text" placeholder="이메일 또는 휴대폰 번호" />
-        <input type="password" placeholder="비밀번호" />
+        <input type="text" placeholder="이메일 또는 휴대폰 번호" onChange={handleEmailChange} />
+        <input type="password" placeholder="비밀번호" onChange={handlePasswordChange} />
       </AppTextField>
-      <AppButton $color={AppColor.red}>로그인</AppButton>
+      <AppButton $color={AppColor.red} onClick={handleSignIn}>로그인</AppButton>
       <Center $margin="16px 0px">
         <SubHeader>또는</SubHeader>
       </Center>

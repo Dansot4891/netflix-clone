@@ -12,6 +12,7 @@ type TextFieldProps = {
 };
 
 export const AppTextField = styled.div<TextFieldProps>`
+    flex: 1;
     input{
         padding: 16px 12px;
         width: 100%;

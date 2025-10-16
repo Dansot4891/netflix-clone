@@ -1,16 +1,20 @@
+import { Footer } from "../../../../../shared/presentation/compoenent/footer/footer";
+import { LoadingView } from "../../../../../shared/presentation/compoenent/loading/loading_view";
 import { SignInBackground } from "../component/sign_in_background"
 import SignInBox from "../component/sign_in_box"
-import SignInFooter from "../component/sign_in_footer"
-import SignInLogo from "../component/sign_in_logo"
+import { Logo } from "../../../../../shared/presentation/compoenent/logo/logo"
+import { SignInViewModel } from "../controller/sign_in_view_model";
 
 function SignInPage() {
+  const signInViewModel = SignInViewModel();
   return (
     <div>
+      {signInViewModel.loading && <LoadingView />}
       <SignInBackground>
-        <SignInLogo />
-        <SignInBox />
+        <Logo />
+        <SignInBox {...signInViewModel} />
       </SignInBackground>
-      <SignInFooter />
+      <Footer />
     </div>
   )
 }
