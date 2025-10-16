@@ -1,11 +1,11 @@
-import { Logo } from "../../../../../shared/presentation/compoenent/logo/logo";
+import { Logo } from "../../../shared/presentation/compoenent/logo/logo";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
-import { AppColor } from "../../../../../core/styles/color/app_color";
-import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppButton } from "../../../shared/presentation/compoenent/button/app_button";
+import { AppColor } from "../../../core/styles/color/app_color";
+import { device } from "../../../core/styles/reponsive/responsive";
 
-const SignUpHeaderComponent = styled.div`
+const MainHeaderComponent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,12 +22,12 @@ const SignUpHeaderComponent = styled.div`
     }
 `;
 
-export function SignUpHeader() {
+export function MainHeader() {
     const navigate = useNavigate();
     return (
-        <SignUpHeaderComponent>
+        <MainHeaderComponent>
             <Logo />
             <AppButton $width="auto" $textColor={AppColor.white} $color={AppColor.red} onClick={() => navigate('/sign-in')}>로그인</AppButton>
-        </SignUpHeaderComponent>
+        </MainHeaderComponent>
     )
 }

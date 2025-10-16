@@ -1,10 +1,10 @@
-import { AppColor } from "../../../../../core/styles/color/app_color";
-import { device } from "../../../../../core/styles/reponsive/responsive";
-import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
-import { AppTextField } from "../../../../../shared/presentation/compoenent/text_field/app_text_field";
+import { AppColor } from "../../../core/styles/color/app_color";
+import { device } from "../../../core/styles/reponsive/responsive";
+import { AppButton } from "../../../shared/presentation/compoenent/button/app_button";
+import { AppTextField } from "../../../shared/presentation/compoenent/text_field/app_text_field";
 import styled from "styled-components";
 
-const SignUpIntroComponent = styled.div`
+const MainIntroComponent = styled.div`
     text-align: center;
     width: 600px;
     margin: 0 auto;
@@ -78,9 +78,9 @@ const Row = styled.div`
     }
 `;
 
-export function SignUpIntro() {
+export function MainIntro() {
     return (
-        <SignUpIntroComponent>
+        <MainIntroComponent>
             <Title>
                 영화, 시리즈 등을<br />
                 무제한으로
@@ -94,6 +94,6 @@ export function SignUpIntro() {
                 </AppTextField>
                 <AppButton $color={AppColor.red} $width="auto" $textColor={AppColor.white}>시작하기</AppButton>
             </Row>
-        </SignUpIntroComponent>
+        </MainIntroComponent>
     )
 }

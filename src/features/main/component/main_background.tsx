@@ -1,10 +1,10 @@
 // App.tsx
 import styled from "styled-components";
-import { AppPath } from "../../../../../core/styles/path/app_path";
-import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppPath } from "../../../core/styles/path/app_path";
+import { device } from "../../../core/styles/reponsive/responsive";
 
 // 배경 이미지
-const SignUpBackgroundComponent = styled.div`
+const MainBackgroundComponent = styled.div`
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.7)), 
     url(${AppPath.signInBg});
@@ -23,10 +23,10 @@ const SignUpBackgroundComponent = styled.div`
   }
 `;
 
-export function SignUpBackground({ children }: { children: React.ReactNode }) {
+export function MainBackground({ children }: { children: React.ReactNode }) {
   return (
-    <SignUpBackgroundComponent>
+    <MainBackgroundComponent>
       {children}
-    </SignUpBackgroundComponent>
+    </MainBackgroundComponent>
   )
 }

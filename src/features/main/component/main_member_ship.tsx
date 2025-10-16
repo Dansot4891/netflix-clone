@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { AppColor } from "../../../../../core/styles/color/app_color";
-import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
-import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../core/styles/color/app_color";
+import { AppButton } from "../../../shared/presentation/compoenent/button/app_button";
 
-const SignUpMemberShipComponent = styled.div`
+const MainMemberShipComponent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,9 +39,9 @@ const Row = styled.div`
 
 
 
-export function SignUpMemberShip() {
+export function MainMemberShip() {
     return (
-        <SignUpMemberShipComponent>
+        <MainMemberShipComponent>
             <Container>
                 <img src="https://cdn-icons-png.flaticon.com/512/3418/3418886.png" />
                 <Row>
@@ -54,6 +53,6 @@ export function SignUpMemberShip() {
                     <AppButton $color={AppColor.gray30} $width="auto" $textColor={AppColor.white}>자세히 알아보기</AppButton>
                 </Row>
             </Container>
-        </SignUpMemberShipComponent>
+        </MainMemberShipComponent>
     )
 }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { AppColor } from "../../../../../core/styles/color/app_color";
-import { device } from "../../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../core/styles/color/app_color";
+import { device } from "../../../core/styles/reponsive/responsive";
 
-const Container = styled.div`
+const MainShowComponent = styled.div`
     padding: 24px 10%;
 `;
 
@@ -55,7 +55,7 @@ const Box = styled.div`
     }
 `;
 
-export function SignupJoinSection() {
+export function MainShow() {
     const data = [
         {
             title: "TV로 즐기세요",
@@ -79,7 +79,7 @@ export function SignupJoinSection() {
         },
     ];
     return (
-        <Container>
+        <MainShowComponent>
             <h2>가입해야 하는 또 다른 이유</h2>
             <br />
             <Row>
@@ -93,6 +93,6 @@ export function SignupJoinSection() {
                     </Box>
                 ))}
             </Row>
-        </Container>
+        </MainShowComponent>
     )
 }
