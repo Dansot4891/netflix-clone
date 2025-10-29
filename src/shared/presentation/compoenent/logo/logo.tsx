@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { device } from "../../../../core/styles/reponsive/responsive";
 import { AppPath } from "../../../../core/styles/path/app_path";
+import { useNavigate } from "react-router-dom";
 
 // 앱 로고
 const LogoComponent = styled.div`
@@ -27,8 +28,9 @@ const LogoComponent = styled.div`
   }
 `;
 export function Logo() {
+  const navigate = useNavigate();
   return (
-    <LogoComponent>
+    <LogoComponent onClick={() => navigate('/')}>
       <img src={AppPath.appLogo} />
     </LogoComponent>
   )
