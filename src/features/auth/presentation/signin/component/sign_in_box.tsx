@@ -6,6 +6,7 @@ import { AppLink } from "../../../../../shared/presentation/compoenent/link/app_
 import { Center } from "../../../../../shared/presentation/compoenent/align/center";
 import { AppTextField } from "../../../../../shared/presentation/compoenent/text_field/app_text_field";
 import { SignInViewModel } from "../controller/sign_in_view_model";
+import { useNavigate } from "react-router-dom";
 
 // 로그인 박스
 const SignInBoxComponent = styled.div`
@@ -52,6 +53,7 @@ const Row = styled.div`
 `;
 
 export function SignInBox(props: ReturnType<typeof SignInViewModel>) {
+  const navigate = useNavigate();
   const { handleEmailChange, handlePasswordChange, handleSignIn } = props;
   return (
     <SignInBoxComponent>
@@ -72,7 +74,7 @@ export function SignInBox(props: ReturnType<typeof SignInViewModel>) {
         <input type="checkbox" name="agree" />
         <p>로그인 정보 저장</p>
       </Row>
-      <SubHeader>넷플릭스 회원이 아닌가요? <AppLink $textColor={AppColor.white}>지금 가입하세요.</AppLink></SubHeader>
+      <SubHeader>넷플릭스 회원이 아닌가요? <AppLink $textColor={AppColor.white} onClick={() => navigate('/sign-up-agreement')}>지금 가입하세요.</AppLink></SubHeader>
       <p style={{ color: AppColor.gray9D }}></p>
       <Footer>
         <p>이 페이지는 Google reCAPTCHA의 보호를 받아 사용자가 로봇이</p>
