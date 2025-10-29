@@ -1,7 +1,7 @@
 // App.tsx
 import styled from "styled-components";
-import { AppPath } from "../../../core/styles/path/app_path";
-import { device } from "../../../core/styles/reponsive/responsive";
+import { AppPath } from "../../../../core/styles/path/app_path";
+import { device } from "../../../../core/styles/reponsive/responsive";
 
 // 배경 이미지
 const MainBackgroundComponent = styled.div`

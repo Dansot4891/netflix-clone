@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { AppColor } from "../../../core/styles/color/app_color";
-import { AppButton } from "../../../shared/presentation/compoenent/button/app_button";
+import { AppColor } from "../../../../core/styles/color/app_color";
+import { AppButton } from "../../../../shared/presentation/compoenent/button/app_button";
+import type { HomeData } from "../../data/dto/home_data";
 
 const MainMemberShipComponent = styled.div`
     display: flex;

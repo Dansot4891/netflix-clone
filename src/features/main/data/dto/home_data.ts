@@ -1,0 +1,1 @@
+export type HomeData = { url: string, content: string, tag: string[] };

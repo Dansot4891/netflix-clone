@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { AppColor } from "../../../core/styles/color/app_color";
-import { device } from "../../../core/styles/reponsive/responsive";
+import { device } from "../../../../core/styles/reponsive/responsive";
+import { AppColor } from "../../../../core/styles/color/app_color";
 
 const MainShowComponent = styled.div`
     padding: 24px 10%;

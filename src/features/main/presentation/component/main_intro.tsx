@@ -1,8 +1,8 @@
-import { AppColor } from "../../../core/styles/color/app_color";
-import { device } from "../../../core/styles/reponsive/responsive";
-import { AppButton } from "../../../shared/presentation/compoenent/button/app_button";
-import { AppTextField } from "../../../shared/presentation/compoenent/text_field/app_text_field";
 import styled from "styled-components";
+import { device } from "../../../../core/styles/reponsive/responsive";
+import { AppTextField } from "../../../../shared/presentation/compoenent/text_field/app_text_field";
+import { AppButton } from "../../../../shared/presentation/compoenent/button/app_button";
+import { AppColor } from "../../../../core/styles/color/app_color";
 
 const MainIntroComponent = styled.div`
     text-align: center;
