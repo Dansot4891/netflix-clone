@@ -1,32 +1,42 @@
-import { useEffect, useState } from "react";
-import { GetHomeDataUseCase } from "../../domain/use_case/get_home_data_use_case";
 import type { HomeData } from "../../data/dto/home_data";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { MainState } from "./main_state";
+import { GetHomeDataUseCase } from "../../domain/use_case/get_home_data_use_case";
 
+const initialState: MainState = { homeData: [], loading: false, showCard: null };
 
-export function MainViewModel() {
-    const [homeData, setHomeData] = useState<HomeData[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [showCard, setShowCard] = useState<HomeData | null>(null);
+// 비동기 로직은 여기서! (reducer 밖에서)
+export const getHomeData = createAsyncThunk(
+    "main/getHomeData",
+    async () => {
+        const homeData = await new GetHomeDataUseCase().execute();
+        return homeData;
+    }
+);
 
-    const getHomeData = async () => {
-        setLoading(true);
-        try {
-            const homeData = await new GetHomeDataUseCase().execute();
-            setHomeData(homeData);
-        } catch (error) {
-            console.log('get home data error', error);
-        } finally {
-            setLoading(false);
-        }
-    };
+export const mainSlice = createSlice({
+    name: "main",
+    initialState,
+    reducers: {
+        setLoading: (s) => { s.loading = true; },
+        setShowCard: (s, a: PayloadAction<HomeData | null>) => { s.showCard = a.payload; },
+    },
+    // 비동기 액션 처리는 여기서!
+    extraReducers: (builder) => {
+        builder
+            .addCase(getHomeData.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getHomeData.fulfilled, (state, action) => {
+                state.loading = false;
+                state.homeData = action.payload;
+            })
+            .addCase(getHomeData.rejected, (state, action) => {
+                state.loading = false;
+                console.log('get home data error', action.error);
+            });
+    },
+});
 
-    const setShowCardData = (item: HomeData | null) => {
-        setShowCard(item);
-    };
-
-    useEffect(() => {
-        getHomeData();
-    }, []);
-
-    return { homeData, loading, getHomeData, showCard, setShowCardData };
-}
+export const { setLoading, setShowCard } = mainSlice.actions;
+export default mainSlice.reducer;
