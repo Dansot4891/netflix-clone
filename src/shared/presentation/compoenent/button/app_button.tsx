@@ -4,13 +4,16 @@ import { AppColor } from "../../../../core/styles/color/app_color";
 type ButtonProps = {
   $color?: string;
   $width?: string;
+  $height?: string;
   $textColor?: string;
+  $padding?: string;
 };
 
 export const AppButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: ${({ $padding }) => $padding ?? "10px"};
+  height: ${({ $height }) => $height ?? "auto"};
   border-radius: 4px;
   font-weight: 500;
   border: none;
