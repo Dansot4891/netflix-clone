@@ -1,20 +1,20 @@
 // view_model.ts
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import type { SignUpPasswordState } from "./sign_up_agreement_state";
 import { SignupUseCase } from "../../../../domain/use_case/signup_use_case";
 import { AppRoutes } from "../../../../../../core/route/routes";
+import type { SignUpState } from "../state/signup_state";
 
-const initialState: SignUpPasswordState = {
+const initialState: SignUpState = {
     email: '',
     password: '',
     isLoading: false,
 };
 
 export const signup = createAsyncThunk(
-    'signupPassword/signup',
+    'signup/signup',
     async (navigate: (path: string) => void, thunkAPI) => {
-        const state = thunkAPI.getState() as { signupPassword: SignUpPasswordState };
-        const { email, password } = state.signupPassword;
+        const state = thunkAPI.getState() as { signup: SignUpState };
+        const { email, password } = state.signup;
 
         const result = await new SignupUseCase().execute(email, password);
         navigate(AppRoutes.signIn);
@@ -22,8 +22,8 @@ export const signup = createAsyncThunk(
     }
 );
 
-export const signupPasswordSlice = createSlice({
-    name: 'signupPassword',
+export const signupSlice = createSlice({
+    name: 'signup',
     initialState,
     reducers: {
         setEmail: (state, action) => { state.email = action.payload; },
@@ -38,5 +38,5 @@ export const signupPasswordSlice = createSlice({
     },
 });
 
-export const { setEmail, setPassword, setLoading } = signupPasswordSlice.actions;
-export default signupPasswordSlice.reducer;
+export const { setEmail, setPassword, setLoading } = signupSlice.actions;
+export default signupSlice.reducer;

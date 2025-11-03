@@ -5,6 +5,8 @@ import { AppButton } from "../../../../shared/presentation/compoenent/button/app
 import { AppColor } from "../../../../core/styles/color/app_color";
 import { device } from "../../../../core/styles/reponsive/responsive";
 import { AppRoutes } from "../../../../core/route/routes";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../../core/store/store";
 
 const MainHeaderComponent = styled.div`
     display: flex;
@@ -25,10 +27,13 @@ const MainHeaderComponent = styled.div`
 
 export function MainHeader() {
     const navigate = useNavigate();
+    const { user, status } = useSelector((state: RootState) => state.user);
+    console.log('status: ', status);
     return (
         <MainHeaderComponent>
             <Logo />
-            <AppButton $width="auto" $textColor={AppColor.white} $color={AppColor.red} onClick={() => navigate(AppRoutes.signIn)}>로그인</AppButton>
+            {status != "authenticated" ? <AppButton $width="auto" $textColor={AppColor.white} $color={AppColor.red} onClick={() => navigate(AppRoutes.signIn)}>로그인</AppButton>
+                : <p>{user.email}</p>}
         </MainHeaderComponent>
     )
 }

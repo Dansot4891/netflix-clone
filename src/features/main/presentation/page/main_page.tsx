@@ -15,11 +15,13 @@ import { getHomeData, setShowCard } from "../controller/main_view_model";
 
 function MainPage() {
   const dispatch = useDispatch<AppDispatch>();
-  const { homeData, loading, showCard } = useSelector((state: RootState) => state.main);
+  const { homeData, loading, showCard, initialize } = useSelector((state: RootState) => state.main);
 
   useEffect(() => {
-    dispatch(getHomeData()); // 이제 작동!
-  }, [dispatch]);
+    if (!initialize) {
+      dispatch(getHomeData());
+    }
+  }, []);
 
   return (
     <div>

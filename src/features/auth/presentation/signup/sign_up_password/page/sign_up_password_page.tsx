@@ -6,27 +6,22 @@ import { AppTextField } from "../../../../../../shared/presentation/compoenent/t
 import { SignUpBackground } from "../../sign_up_agreement/component/sign_up_background";
 import { SignUpContent } from "../../sign_up_agreement/component/sign_up_content";
 import { SignUpHeader } from "../../sign_up_agreement/component/sign_up_header";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch } from "../../../../../../core/store/store";
-import { setEmail, setPassword, signup } from "../controller/sign_up_agreement_view_model";
+import { setPassword, signup } from "../../shared/slice/sign_up_slice";
 import { LoadingView } from "../../../../../../shared/presentation/compoenent/loading/loading_view";
 import type { RootState } from "../../../../../../core/store/store";
+import { useState } from "react";
 
 export function SignUpPasswordPage() {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const [searchParams] = useSearchParams();
-    const { isLoading } = useSelector((state: RootState) => state.signupPassword);
+    const { isLoading } = useSelector((state: RootState) => state.signup);
 
-    const email = searchParams.get("email") ?? "";
-
-    useEffect(() => {
-        dispatch(setEmail(email));
-    }, []);
+    const [password, setPasswordState] = useState('');
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch(setPassword(e.target.value));
+        setPasswordState(e.target.value);
     };
 
     return (
@@ -44,7 +39,10 @@ export function SignUpPasswordPage() {
                     >
                         <input type="password" placeholder="비밀번호" onChange={handlePasswordChange} />
                     </AppTextField>
-                    <AppButton $color={AppColor.red} onClick={() => dispatch(signup(navigate))}>
+                    <AppButton $color={AppColor.red} onClick={() => {
+                        dispatch(setPassword(password));
+                        dispatch(signup(navigate));
+                    }}>
                         회원가입
                     </AppButton>
                 </SignUpContent>

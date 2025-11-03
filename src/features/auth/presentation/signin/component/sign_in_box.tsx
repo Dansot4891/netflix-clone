@@ -53,9 +53,8 @@ const Row = styled.div`
   }
 `;
 
-export function SignInBox(props: ReturnType<typeof SignInViewModel>) {
+export function SignInBox({ handleEmailChange, handlePasswordChange, signIn }: { handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void, handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void, signIn: () => void }) {
   const navigate = useNavigate();
-  const { handleEmailChange, handlePasswordChange, handleSignIn } = props;
   return (
     <SignInBoxComponent>
       <Header>로그인</Header>
@@ -63,7 +62,7 @@ export function SignInBox(props: ReturnType<typeof SignInViewModel>) {
         <input type="text" placeholder="이메일 또는 휴대폰 번호" onChange={handleEmailChange} />
         <input type="password" placeholder="비밀번호" onChange={handlePasswordChange} />
       </AppTextField>
-      <AppButton $color={AppColor.red} onClick={handleSignIn}>로그인</AppButton>
+      <AppButton $color={AppColor.red} onClick={signIn}>로그인</AppButton>
       <Center $margin="16px 0px">
         <SubHeader>또는</SubHeader>
       </Center>

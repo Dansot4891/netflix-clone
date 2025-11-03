@@ -1,4 +1,4 @@
-export interface SignUpPasswordState {
+export interface SignUpState {
     email: string;
     password: string;
     isLoading: boolean;

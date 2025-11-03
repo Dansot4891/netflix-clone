@@ -6,16 +6,22 @@ import { AppTextField } from "../../../../../../shared/presentation/compoenent/t
 import { SignUpBackground } from "../../sign_up_agreement/component/sign_up_background";
 import { SignUpContent } from "../../sign_up_agreement/component/sign_up_content";
 import { SignUpHeader } from "../../sign_up_agreement/component/sign_up_header";
-import { useState } from "react";
 import { AppRoutes } from "../../../../../../core/route/routes";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../../../../../core/store/store";
+import { setEmail } from "../../shared/slice/sign_up_slice";
+import { useState } from "react";
 
 
 export function SignUpEmailPage() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
+    const dispatch = useDispatch<AppDispatch>();
+    const [email, setEmailState] = useState('');
+
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
+        setEmailState(e.target.value);
     };
+
     return (
         <SignUpBackground>
             <SignUpHeader />
@@ -24,7 +30,10 @@ export function SignUpEmailPage() {
                 <AppTextField $backgroundColor={AppColor.white} $marginBottom="40px" $textColor={AppColor.black} $focusBorderColor={AppColor.black}>
                     <input type="email" placeholder="이메일 주소" onChange={handleEmailChange} />
                 </AppTextField>
-                <AppButton $color={AppColor.red} onClick={() => navigate(`${AppRoutes.signUpPassword}?email=${email}`)}>다음</AppButton>
+                <AppButton $color={AppColor.red} onClick={() => {
+                    dispatch(setEmail(email));
+                    navigate(AppRoutes.signUpPassword);
+                }}>다음</AppButton>
             </SignUpContent>
             <Footer $backgroundColor={AppColor.gray3E} />
         </SignUpBackground>

@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../../shared/slices/auth/auth_slice";
+import userReducer from "../../shared/slices/user/user_slice";
 import mainReducer from "../../features/main/presentation/controller/main_view_model";
-import signupPasswordReducer from "../../features/auth/presentation/signup/sign_up_password/controller/sign_up_agreement_view_model";
+import signupReducer from "../../features/auth/presentation/signup/shared/slice/sign_up_slice";
 
 export const store = configureStore({
     reducer: {
-        auth: authReducer,
+        user: userReducer,
         main: mainReducer,
-        signupPassword: signupPasswordReducer,
+        signup: signupReducer,
     },
 });
 

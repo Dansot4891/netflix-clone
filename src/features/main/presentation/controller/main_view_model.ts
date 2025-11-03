@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/tool
 import type { MainState } from "./main_state";
 import { GetHomeDataUseCase } from "../../domain/use_case/get_home_data_use_case";
 
-const initialState: MainState = { homeData: [], loading: false, showCard: null };
+const initialState: MainState = { homeData: [], loading: false, showCard: null, initialize: false };
 
 // 비동기 로직은 여기서! (reducer 밖에서)
 export const getHomeData = createAsyncThunk(
@@ -30,6 +30,7 @@ export const mainSlice = createSlice({
             .addCase(getHomeData.fulfilled, (state, action) => {
                 state.loading = false;
                 state.homeData = action.payload;
+                state.initialize = true;
             })
             .addCase(getHomeData.rejected, (state, action) => {
                 state.loading = false;

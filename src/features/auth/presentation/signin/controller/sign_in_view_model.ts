@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { LoginUseCase } from "../../../domain/use_case/login_use_case";
 import { FirebaseError } from "firebase/app";
+import { useNavigate } from "react-router-dom";
+import { AppRoutes } from "../../../../../core/route/routes";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../../../../core/store/store";
+import { setUser } from "../../../../../shared/slices/user/user_slice";
 
 
 export function SignInViewModel() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,10 +24,12 @@ export function SignInViewModel() {
     setPassword(e.target.value);
   };
 
-  const handleSignIn = async () => {
+  const signIn = async () => {
     setLoading(true);
     try {
-      await new LoginUseCase().execute(email, password);
+      const result = await new LoginUseCase().execute(email, password);
+      dispatch(setUser({ email: result.email, displayName: result.displayName }));
+      navigate(AppRoutes.main);
     } catch (error) {
       console.log('sign In error', error);
       if (error instanceof FirebaseError) {
@@ -41,5 +51,5 @@ export function SignInViewModel() {
     }
   };
 
-  return { email, password, loading, handleEmailChange, handlePasswordChange, handleSignIn };
+  return { email, password, loading, handleEmailChange, handlePasswordChange, signIn };
 }

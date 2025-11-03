@@ -12,7 +12,7 @@ function SignInPage() {
       {signInViewModel.loading && <LoadingView />}
       <SignInBackground>
         <Logo />
-        <SignInBox {...signInViewModel} />
+        <SignInBox handleEmailChange={signInViewModel.handleEmailChange} handlePasswordChange={signInViewModel.handlePasswordChange} signIn={signInViewModel.signIn} />
       </SignInBackground>
       <Footer />
     </div>
