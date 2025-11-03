@@ -2,9 +2,9 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import SignInPage from './features/auth/presentation/signin/page/sign_in_page'
 import MainPage from './features/main/presentation/page/main_page'
-import { SignUpAgreementPage } from './features/auth/presentation/signup/sign_up_agreement/page/sign_up_agreement_page'
-import { SignUpPasswordPage } from './features/auth/presentation/signup/sign_up_password/page/sign_up_password_page'
-import { SignUpEmailPage } from './features/auth/presentation/signup/sign_up_email/page/sign_up_email_page'
+import { SignUpAgreementPage } from './features/auth/presentation/signup/sign_up_agreement/sign_up_agreement_page'
+import { SignUpPasswordPage } from './features/auth/presentation/signup/sign_up_password/sign_up_password_page'
+import { SignUpEmailPage } from './features/auth/presentation/signup/sign_up_email/sign_up_email_page'
 import { AppRoutes } from './core/route/routes'
 
 function App() {

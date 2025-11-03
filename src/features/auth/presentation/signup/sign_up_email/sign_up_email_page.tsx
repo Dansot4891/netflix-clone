@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { AppColor } from "../../../../../../core/styles/color/app_color";
-import { AppButton } from "../../../../../../shared/presentation/compoenent/button/app_button";
-import { Footer } from "../../../../../../shared/presentation/compoenent/footer/footer";
-import { AppTextField } from "../../../../../../shared/presentation/compoenent/text_field/app_text_field";
-import { SignUpBackground } from "../../sign_up_agreement/component/sign_up_background";
-import { SignUpContent } from "../../sign_up_agreement/component/sign_up_content";
-import { SignUpHeader } from "../../sign_up_agreement/component/sign_up_header";
-import { AppRoutes } from "../../../../../../core/route/routes";
+import { AppColor } from "../../../../../core/styles/color/app_color";
+import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
+import { Footer } from "../../../../../shared/presentation/compoenent/footer/footer";
+import { AppTextField } from "../../../../../shared/presentation/compoenent/text_field/app_text_field";
+import { SignUpBackground } from "../shared/component/sign_up_background";
+import { SignUpContent } from "../shared/component/sign_up_content";
+import { SignUpHeader } from "../shared/component/sign_up_header";
+import { AppRoutes } from "../../../../../core/route/routes";
 import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../../../../../core/store/store";
-import { setEmail } from "../../shared/slice/sign_up_slice";
+import type { AppDispatch } from "../../../../../core/store/store";
+import { setEmail } from "../shared/slice/sign_up_slice";
 import { useState } from "react";
 
 

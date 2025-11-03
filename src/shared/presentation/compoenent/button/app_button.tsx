@@ -22,6 +22,7 @@ export const AppButton = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: ${({ $color }) => $color ?? AppColor.main};
   color: ${({ $textColor }) => $textColor ?? AppColor.white};
+  white-space: nowrap;
 
   &:hover {
     filter: brightness(0.9);

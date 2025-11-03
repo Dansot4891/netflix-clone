@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { AppColor } from "../../../../../../core/styles/color/app_color";
-import { AppButton } from "../../../../../../shared/presentation/compoenent/button/app_button";
-import { Footer } from "../../../../../../shared/presentation/compoenent/footer/footer";
+import { AppColor } from "../../../../../core/styles/color/app_color";
+import { AppButton } from "../../../../../shared/presentation/compoenent/button/app_button";
+import { Footer } from "../../../../../shared/presentation/compoenent/footer/footer";
 import styled from "styled-components";
 import { useState } from "react";
-import { SignUpBackground } from "../component/sign_up_background";
-import { SignUpHeader } from "../component/sign_up_header";
-import { SignUpContent } from "../component/sign_up_content";
-import { AppRoutes } from "../../../../../../core/route/routes";
+import { SignUpBackground } from "../shared/component/sign_up_background";
+import { SignUpHeader } from "../shared/component/sign_up_header";
+import { SignUpContent } from "../shared/component/sign_up_content";
+import { AppRoutes } from "../../../../../core/route/routes";
 
 const Row = styled.div`
     display: flex;
