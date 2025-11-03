@@ -4,6 +4,7 @@ import { Logo } from "../../../../shared/presentation/compoenent/logo/logo";
 import { AppButton } from "../../../../shared/presentation/compoenent/button/app_button";
 import { AppColor } from "../../../../core/styles/color/app_color";
 import { device } from "../../../../core/styles/reponsive/responsive";
+import { AppRoutes } from "../../../../core/route/routes";
 
 const MainHeaderComponent = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ export function MainHeader() {
     return (
         <MainHeaderComponent>
             <Logo />
-            <AppButton $width="auto" $textColor={AppColor.white} $color={AppColor.red} onClick={() => navigate('/sign-in')}>로그인</AppButton>
+            <AppButton $width="auto" $textColor={AppColor.white} $color={AppColor.red} onClick={() => navigate(AppRoutes.signIn)}>로그인</AppButton>
         </MainHeaderComponent>
     )
 }

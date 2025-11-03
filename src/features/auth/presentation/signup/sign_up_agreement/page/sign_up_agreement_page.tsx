@@ -7,6 +7,7 @@ import { useState } from "react";
 import { SignUpBackground } from "../component/sign_up_background";
 import { SignUpHeader } from "../component/sign_up_header";
 import { SignUpContent } from "../component/sign_up_content";
+import { AppRoutes } from "../../../../../../core/route/routes";
 
 const Row = styled.div`
     display: flex;
@@ -52,33 +53,33 @@ const Checkbox = styled.input.attrs({ type: 'checkbox' })`
 `;
 
 export function SignUpAgreementPage() {
-    const navigate = useNavigate();
-    const [agree, setAgree] = useState(false);
+  const navigate = useNavigate();
+  const [agree, setAgree] = useState(false);
 
-    return (
-        <SignUpBackground>
-            <SignUpHeader />
-            <SignUpContent>
-                <Row>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1221/1221614.png" />
-                    <img src="https://cdn-icons-png.freepik.com/512/2004/2004580.png" />
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeYkSCj1tO2XRmTKIx8lMB0WDc2CFHzPcong&s" />
-                </Row>
-                <br />
-                <p>1 / 3단계</p>
-                <h2>개인정보 수집 및 이용 동의</h2>
-                <Row>
-                    <Checkbox type="checkbox" name="agree" checked={agree} onChange={() => setAgree(!agree)} />
-                    <p>예, 개인정보 처리방침에 따른 개인정보 수집 및 활용에 동의합니다.(상세 정보)</p>
-                </Row>
-                <Row>
-                    <Checkbox type="checkbox" name="agree" />
-                    <p>예, 넷플릭스 특별 프로모션 이메일을 보내주세요. (선택 사항)</p>
-                </Row>
-                <br />
-                <AppButton $color={agree ? AppColor.red : AppColor.grayBE} onClick={() => navigate('/sign-up-email')} disabled={!agree}>다음</AppButton>
-            </SignUpContent>
-            <Footer $backgroundColor={AppColor.gray3E} />
-        </SignUpBackground>
-    )
+  return (
+    <SignUpBackground>
+      <SignUpHeader />
+      <SignUpContent>
+        <Row>
+          <img src="https://cdn-icons-png.flaticon.com/512/1221/1221614.png" />
+          <img src="https://cdn-icons-png.freepik.com/512/2004/2004580.png" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeYkSCj1tO2XRmTKIx8lMB0WDc2CFHzPcong&s" />
+        </Row>
+        <br />
+        <p>1 / 3단계</p>
+        <h2>개인정보 수집 및 이용 동의</h2>
+        <Row>
+          <Checkbox type="checkbox" name="agree" checked={agree} onChange={() => setAgree(!agree)} />
+          <p>예, 개인정보 처리방침에 따른 개인정보 수집 및 활용에 동의합니다.(상세 정보)</p>
+        </Row>
+        <Row>
+          <Checkbox type="checkbox" name="agree" />
+          <p>예, 넷플릭스 특별 프로모션 이메일을 보내주세요. (선택 사항)</p>
+        </Row>
+        <br />
+        <AppButton $color={agree ? AppColor.red : AppColor.grayBE} onClick={() => navigate(AppRoutes.signUpEmail)} disabled={!agree}>다음</AppButton>
+      </SignUpContent>
+      <Footer $backgroundColor={AppColor.gray3E} />
+    </SignUpBackground>
+  )
 }

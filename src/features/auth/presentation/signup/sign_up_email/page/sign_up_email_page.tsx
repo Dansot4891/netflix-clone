@@ -7,6 +7,7 @@ import { SignUpBackground } from "../../sign_up_agreement/component/sign_up_back
 import { SignUpContent } from "../../sign_up_agreement/component/sign_up_content";
 import { SignUpHeader } from "../../sign_up_agreement/component/sign_up_header";
 import { useState } from "react";
+import { AppRoutes } from "../../../../../../core/route/routes";
 
 
 export function SignUpEmailPage() {
@@ -23,7 +24,7 @@ export function SignUpEmailPage() {
                 <AppTextField $backgroundColor={AppColor.white} $marginBottom="40px" $textColor={AppColor.black} $focusBorderColor={AppColor.black}>
                     <input type="email" placeholder="이메일 주소" onChange={handleEmailChange} />
                 </AppTextField>
-                <AppButton $color={AppColor.red} onClick={() => navigate(`/sign-up-password?email=${email}`)}>다음</AppButton>
+                <AppButton $color={AppColor.red} onClick={() => navigate(`${AppRoutes.signUpPassword}?email=${email}`)}>다음</AppButton>
             </SignUpContent>
             <Footer $backgroundColor={AppColor.gray3E} />
         </SignUpBackground>

@@ -2,6 +2,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { SignUpPasswordState } from "./sign_up_agreement_state";
 import { SignupUseCase } from "../../../../domain/use_case/signup_use_case";
+import { AppRoutes } from "../../../../../../core/route/routes";
 
 const initialState: SignUpPasswordState = {
     email: '',
@@ -16,7 +17,7 @@ export const signup = createAsyncThunk(
         const { email, password } = state.signupPassword;
 
         const result = await new SignupUseCase().execute(email, password);
-        navigate("/sign-up-email"); // ✅ 성공 시 이동
+        navigate(AppRoutes.signUpEmail);
         return result;
     }
 );
