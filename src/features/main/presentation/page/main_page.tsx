@@ -14,7 +14,7 @@ import type { AppDispatch, RootState } from "../../../../core/store/store";
 import { getHomeData, setShowCard } from "../controller/main_view_model";
 
 function MainPage() {
-  const dispatch = useDispatch<AppDispatch>(); // 타입 지정!
+  const dispatch = useDispatch<AppDispatch>();
   const { homeData, loading, showCard } = useSelector((state: RootState) => state.main);
 
   useEffect(() => {
