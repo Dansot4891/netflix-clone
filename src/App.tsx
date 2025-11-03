@@ -6,6 +6,7 @@ import { SignUpAgreementPage } from './features/auth/presentation/signup/sign_up
 import { SignUpPasswordPage } from './features/auth/presentation/signup/sign_up_password/sign_up_password_page'
 import { SignUpEmailPage } from './features/auth/presentation/signup/sign_up_email/sign_up_email_page'
 import { AppRoutes } from './core/route/routes'
+import { HomePage } from './features/home/presentation/page/home_page'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path={AppRoutes.signUpAgreement} element={<SignUpAgreementPage />} />
       <Route path={AppRoutes.signUpPassword} element={<SignUpPasswordPage />} />
       <Route path={AppRoutes.signUpEmail} element={<SignUpEmailPage />} />
+      <Route path={AppRoutes.home} element={<HomePage />} />
     </Routes>
   )
 }

@@ -1,8 +1,8 @@
 // App.tsx
 import styled from "styled-components";
-import { AppPath } from "../../../../../core/styles/path/app_path";
 import { device } from "../../../../../core/styles/reponsive/responsive";
 import { AppColor } from "../../../../../core/styles/color/app_color";
+import { AppPath } from "../../../../../core/styles/path/app_path";
 
 // 배경 이미지
 const SignInBackgroundComponent = styled.div`

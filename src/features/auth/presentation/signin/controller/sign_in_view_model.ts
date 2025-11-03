@@ -29,7 +29,7 @@ export function SignInViewModel() {
     try {
       const result = await new LoginUseCase().execute(email, password);
       dispatch(setUser({ email: result.email, displayName: result.displayName }));
-      navigate(AppRoutes.main);
+      navigate(AppRoutes.home);
     } catch (error) {
       console.log('sign In error', error);
       if (error instanceof FirebaseError) {

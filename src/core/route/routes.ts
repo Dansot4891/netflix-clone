@@ -4,4 +4,5 @@ export const AppRoutes = {
     signUpAgreement: '/sign-up-agreement',
     signUpPassword: '/sign-up-password',
     signUpEmail: '/sign-up-email',
+    home: '/home',
 } as const;

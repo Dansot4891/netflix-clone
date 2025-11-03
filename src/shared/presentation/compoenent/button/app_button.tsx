@@ -7,6 +7,7 @@ type ButtonProps = {
   $height?: string;
   $textColor?: string;
   $padding?: string;
+  $fontSize?: string;
 };
 
 export const AppButton = styled.button<ButtonProps>`
@@ -17,7 +18,7 @@ export const AppButton = styled.button<ButtonProps>`
   border-radius: 4px;
   font-weight: 500;
   border: none;
-  font-size: 16px;
+  font-size: ${({ $fontSize }) => $fontSize ?? "16px"};
   width: ${({ $width }) => $width ?? "100%"};
   cursor: pointer;
   background-color: ${({ $color }) => $color ?? AppColor.main};
