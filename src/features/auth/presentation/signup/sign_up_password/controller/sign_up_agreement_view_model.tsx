@@ -17,7 +17,7 @@ export const signup = createAsyncThunk(
         const { email, password } = state.signupPassword;
 
         const result = await new SignupUseCase().execute(email, password);
-        navigate(AppRoutes.signUpEmail);
+        navigate(AppRoutes.signIn);
         return result;
     }
 );
